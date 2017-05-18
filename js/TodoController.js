@@ -14,7 +14,6 @@
             completed: false
         }
     ]
-
 };
 
 angular
