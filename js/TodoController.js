@@ -2,8 +2,8 @@
 
     this.list = [
         {
-        title: 'First todo item',
-        completed: false
+            title: 'First todo item',
+            completed: true
         },
         {
             title: 'Second todo item',
