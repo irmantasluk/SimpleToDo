@@ -10,6 +10,10 @@
         })
     }
 
+    vm.updateTodo = function (item, index) {
+        TodoService.update(item);
+    }
+
     vm.addTodo = function () {
         vm.list.unshift({
                 title: this.newTodo,

@@ -12,8 +12,10 @@
         })
     }
 
-    function update() {
-
+    function update(todo) {
+        $http.put(API + todo.id).then(function (response) {
+            return response.data;
+        })
     }
 
     function remove() {

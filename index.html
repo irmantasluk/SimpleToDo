@@ -19,7 +19,7 @@
                 <label class="toggle" for="todo-{{$index}}"></label>
                 <p ng-hide="showEdit" ng-dblclick="showEdit = true;">{{item.title}}</p>
                 <div ng-show="showEdit">
-                    <input type="text" ng-model="item.title" ng-blur="showEdit = false;" />
+                    <input type="text" ng-model="item.title" ng-blur="todo.updateTodo(item, $index); showEdit = false;" />
                 </div>
                 <a href="" ng-click="todo.removeTodo(item, $index);">
                     &#215;
