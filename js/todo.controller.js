@@ -11,18 +11,42 @@
     }
 
     vm.updateTodo = function (item, index) {
+        if (!item.title) {
+            vm.removeTodo(item, index);
+            return;
+        }
+
         TodoService.update(item);
     }
 
     vm.addTodo = function () {
-        vm.list.unshift({
-                title: this.newTodo,
+        if (!vm.newTodo) {
+            return;
+        }
+        TodoService
+            .create({
+                title: vm.newTodo,
                 completed: false
-            });
-        vm.newTodo = '';
+            })
+            .then(function (response) {
+                vm.list.unshift(response);
+                vm.newTodo = '';
+            });        
     }
     vm.removeTodo = function (item, index) {
-        vm.list.splice(index, 1);
+        TodoService.remove(item).then(function (response) {
+            vm.list.splice(index, 1);
+        });
+    }
+
+    vm.toggleState = function (item) {
+        TodoService
+            .update(item)
+            .then(function () {
+
+            }, function () {
+                item.completed = !item.completed;
+            });
     }
 
     vm.getRemaining = function () {
