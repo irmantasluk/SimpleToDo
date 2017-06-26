@@ -19,7 +19,7 @@
                 <label class="toggle" for="todo-{{$index}}"></label>
                 <p ng-hide="showEdit" ng-dblclick="showEdit = true;">{{item.title}}</p>
                 <div ng-show="showEdit">
-                    <input type="text" ng-model="item.title" ng-blur="todo.updateTodo(item, $index); showEdit = false;" />
+                    <input type="text" ng-model="item.title" ng-blur="todo.updateTodo(item, $index); showEdit = false;" todo-autofocus="showEdit" />
                 </div>
                 <a href="" ng-click="todo.removeTodo(item, $index);">
                     &#215;
@@ -35,5 +35,6 @@
     <script src="js/app.js"></script>
     <script src="js/todo.controller.js"></script>
     <script src="js/todo.service.js"></script>
+    <script src="js/todo.autoFocus.directive.js"></script>
 </body>
 </html>
